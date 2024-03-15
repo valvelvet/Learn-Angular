@@ -1,0 +1,54 @@
+<!-- 組件使用 -->
+<!-- <app-button></app-button> -->
+<!-- <div app-button></div> -->
+<!-- <div class="app-button"></div> -->
+
+<div>
+  <h2>綁定</h2>
+  <div class="">
+    <p>
+      inputVal:
+      <!-- 屬性綁定 {{...}}；[...]="..." -->
+      <span>{{ inputVal }}</span>
+      /
+      <span [textContent]="inputVal"></span>
+      /
+      <span [textContent]="getInputVal()"></span>
+    </p>
+    <div class="d-flex flex-column gap-1">
+      <!-- 事件綁定 (...)="..." -->
+      <input type="text" (input)="updateInputVal($event)" />
+      <input type="text" [value]="inputVal" (input)="updateInputVal($event)" />
+      <!-- 雙向綁定 [(...)]="..." -->
+      <input type="text" [(ngModel)]="inputVal" />
+    </div>
+    <button [classList]="btnType + ' mt-1'" (click)="btnClick('')">按我</button>
+  </div>
+
+  <hr class="dash-line" />
+
+  <h3>練習</h3>
+  <div class="">
+    <span>輸入：</span>
+    <input type="text" [(ngModel)]="praticeInputVal" />
+    <button
+      class="cancal m-1"
+      [disabled]="praticeInputVal.length == 0"
+      (click)="praticeInputVal = ''"
+    >
+      清除
+    </button>
+  </div>
+</div>
+
+<hr />
+
+<div>
+  <h2>if指令</h2>
+  <div class=""></div>
+
+  <hr class="dash-line" />
+
+  <h3>練習</h3>
+  <div class=""></div>
+</div>
