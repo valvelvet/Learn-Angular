@@ -5,7 +5,7 @@
 
 <div>
   <h2>綁定</h2>
-  <div class="">
+  <div>
     <p>
       inputVal:
       <!-- 屬性綁定 {{...}}；[...]="..." -->
@@ -22,13 +22,11 @@
       <!-- 雙向綁定 [(...)]="..." -->
       <input type="text" [(ngModel)]="inputVal" />
     </div>
-    <button [classList]="btnType + ' mt-1'" (click)="btnClick('')">按我</button>
   </div>
 
   <hr class="dash-line" />
-
   <h3>練習</h3>
-  <div class="">
+  <div>
     <span>輸入：</span>
     <input type="text" [(ngModel)]="praticeInputVal" />
     <button
@@ -44,11 +42,68 @@
 <hr />
 
 <div>
-  <h2>if指令</h2>
-  <div class=""></div>
+  <h2>ngIf</h2>
+  <div>
+    <button (click)="theIfVal = !theIfVal">on/off</button>
+    <span *ngIf="theIfVal; else theIfValFalse"> ❤️ </span>
+    <ng-template #theIfValFalse>
+      <span> 💔 </span>
+    </ng-template>
+    <!-- Angular17以上可用的寫法 -->
+    @if (theIfVal) {
+    <span> 🩷 </span>
+    } @else {
+    <span> 💖 </span>
+    }
+  </div>
 
   <hr class="dash-line" />
+  <h2>ngStyle/ngClass</h2>
+  <div>
+    <button
+      [ngClass]="btnType + ' mt-1'"
+      [ngStyle]="{ boxShadow: '4px 2px 0px ' + btnType }"
+      (click)="btnClick('')"
+    >
+      按我
+    </button>
+  </div>
 
-  <h3>練習</h3>
-  <div class=""></div>
+  <hr class="dash-line" />
+  <h2>ngFor</h2>
+  <div>
+    <button (click)="addItemForArr()">+</button>
+    <div>
+      <span *ngFor="let num of theForArr"> {{ num }} </span>
+    </div>
+    <div>
+      <!-- Angular17以上可用的寫法，此新語法目前僅在「開發者預覽版」中可用 -->
+      @for (num of theForArr; track num) {
+      <span> {{ num }} </span>
+      }
+    </div>
+  </div>
+
+  <hr class="dash-line" />
+  <h3>練習：To do list.</h3>
+  <div>
+    <ul>
+      <li *ngFor="let item of praticeArr; let i = index" class="my-1">
+        <span
+          [ngStyle]="{ textDecoration: item.isFinish ? 'line-through' : '' }"
+        >
+          {{ i + 1 + ". " + item.content }}
+        </span>
+        <button
+          [ngClass]="{ cancal: item.isFinish }"
+          (click)="item.isFinish = !item.isFinish"
+        >
+          完成
+        </button>
+      </li>
+    </ul>
+    <button *ngIf="hasFinished()" (click)="removePraticeArrItem()">
+      移除已完成
+    </button>
+  </div>
 </div>

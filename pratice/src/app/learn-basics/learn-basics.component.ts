@@ -22,12 +22,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./learn-basics.component.scss'],
 })
 export class LearnBasicsComponent {
-  btnType: string = 'red';
   inputVal = 'Text';
   praticeInputVal = '';
+  theIfVal = true;
+  btnType: string = 'red';
+  theForArr: number[] = [0, 1, 2, 3, 4];
+  praticeArr: { isFinish: boolean; content: string }[] = [
+    { isFinish: false, content: '4/4(四),4/5(五)放清明兒童節' },
+    { isFinish: false, content: '5/1(三)放假' },
+    { isFinish: false, content: '6/10(一)放端午節' },
+    { isFinish: false, content: '9/17(二)放中秋節' },
+    { isFinish: false, content: '10/10(四)放雙十' },
+  ];
 
   constructor() {
-    setTimeout(() => (this.btnType = 'blue'), 2000);
+    setTimeout(() => (this.inputVal += '.'), 1000);
+    setTimeout(() => (this.inputVal += '.'), 2000);
+    setTimeout(() => (this.inputVal += '.'), 3000);
   }
 
   getInputVal() {
@@ -53,5 +64,18 @@ export class LearnBasicsComponent {
         this.btnType = _btnType;
         break;
     }
+  }
+
+  addItemForArr() {
+    this.theForArr.pop();
+    this.theForArr.unshift(Math.floor(Math.random() * 10));
+  }
+
+  hasFinished() {
+    return this.praticeArr.find((i) => i.isFinish);
+  }
+
+  removePraticeArrItem() {
+    this.praticeArr = this.praticeArr.filter((i) => !i.isFinish);
   }
 }
