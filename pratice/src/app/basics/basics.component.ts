@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 
 @Component({
   /** selector：創建的組件名，引用方式參照CSS命名的方式引用（id、偽類等等的都無效） */
-  selector: 'app-learn-basics', // <app-learn-basics></app-learn-basics>
+  selector: 'app-basics', // <app-learn-basics></app-learn-basics>
   // selector: '[app-learn-basics]', // <div app-learn-basics></div>
   // selector: '.app-learn-basics', // <div class="app-learn-basics"></div>
 
   /** template、templateUrl：模板，二選一必填 */
   // template: '<app-button></app-button><app-button></app-button>',
-  templateUrl: './learn-basics.component.html',
+  templateUrl: './basics.component.html',
 
   /** styles、styleUrl、styleUrls：樣式引用文件，非必填 */
   // styles: [
@@ -18,10 +18,10 @@ import { Component } from '@angular/core';
   //     }
   //   `,
   // ],
-  // styleUrl: './learn-basics.component.scss',
-  styleUrls: ['./learn-basics.component.scss'],
+  // styleUrl: './basics.component.scss',
+  styleUrls: ['./basics.component.scss'],
 })
-export class LearnBasicsComponent {
+export class BasicsComponent {
   inputVal = 'Text';
   praticeInputVal = '';
   theIfVal = true;

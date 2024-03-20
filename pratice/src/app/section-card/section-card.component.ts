@@ -8,4 +8,8 @@ import { Component, Input } from '@angular/core';
 export class SectionCardComponent {
   @Input()
   title: string;
+  @Input()
+  id: string;
+  @Input()
+  width: string = '500px';
 }

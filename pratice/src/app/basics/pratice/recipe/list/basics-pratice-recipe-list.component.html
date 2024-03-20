@@ -1,0 +1,12 @@
+<div class="recipes">
+  <h2 class="">列表</h2>
+  <button class="d-block ml-auto mr-0">新增食譜</button>
+  <a href="#" class="recipe" *ngFor="let recipe of recipes">
+    <img class="recipe-img" [src]="recipe.imgPath" alt="" />
+    <div class="recipe-info">
+      <h3 class="name">{{ recipe.name }}</h3>
+      <p class="desc">{{ recipe.description }}</p>
+      <div class="time">{{ recipe.time }}分鐘</div>
+    </div>
+  </a>
+</div>

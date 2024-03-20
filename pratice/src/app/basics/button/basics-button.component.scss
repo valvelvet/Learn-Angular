@@ -1,0 +1,25 @@
+@import "_variables.scss";
+
+button {
+  color: white;
+  background-color: $primary;
+  border: none;
+  padding: 5px 20px;
+  border-radius: 3px;
+
+  &.red {
+    color: white;
+    background-color: $primary;
+    border: 2px solid $primary-dark;
+  }
+  &.blue {
+    color: white;
+    background-color: $second;
+    border: 2px solid $second-bright;
+  }
+  &.orange {
+    color: white;
+    background-color: $third;
+    border: 2px solid $third;
+  }
+}

@@ -1,22 +1,24 @@
+@import "_variables.scss";
+
 button {
   border: 1px solid transparent;
   padding: 2px 20px;
   border-radius: 3px;
   color: white;
-  background-color: #dd0031;
+  background-color: $primary;
   &:disabled {
     filter: brightness(0.95);
     cursor: not-allowed;
   }
 
   &.red {
-    background-color: #dd0031;
+    background-color: $primary;
   }
   &.blue {
-    background-color: #287ed5;
+    background-color: $second;
   }
   &.orange {
-    background-color: #ff9800;
+    background-color: $third;
   }
 
   &.cancal {

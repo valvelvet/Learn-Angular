@@ -1,0 +1,36 @@
+@import "_variables.scss";
+
+.recipes {
+  padding: 10px;
+  .recipe {
+    margin: 10px 0;
+    display: flex;
+    color: black;
+    text-decoration: none;
+
+    .recipe-img {
+      width: 33%;
+      object-fit: cover;
+    }
+    .recipe-info {
+      margin: 0 0 0 10px;
+      border-bottom: 2px solid $primary-bg;
+
+      .name {
+        color: $primary-dark;
+      }
+      .desc {
+        opacity: 0.6;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+      }
+      .time {
+        margin-left: auto;
+        width: fit-content;
+        opacity: 0.4;
+      }
+    }
+  }
+}
