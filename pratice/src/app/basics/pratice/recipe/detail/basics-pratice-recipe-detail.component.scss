@@ -1,0 +1,74 @@
+@import "_variables.scss";
+
+.recipe {
+  .recipe-info {
+    .recipe-img {
+      object-fit: contain;
+      object-position: top;
+    }
+  }
+
+  .recipe-ingredients {
+    display: flex;
+
+    h4 {
+      width: 30%;
+      text-align: end;
+    }
+    .ingredients {
+      margin: 0 0 0 10px;
+      width: 70%;
+      .ingredient {
+        position: relative;
+        z-index: 0;
+        margin: 0 0 8px;
+        display: flex;
+        justify-content: space-between;
+        &::after {
+          content: "";
+          position: absolute;
+          z-index: -1;
+          top: 50%;
+          width: 100%;
+          border-bottom: 1px dashed $gray-light;
+        }
+        span {
+          background: $primary-bg;
+          padding: 0 10px;
+        }
+      }
+    }
+  }
+
+  .recipe-steps {
+    border: 1px solid $gray-light;
+    border-radius: 5px;
+    padding: 10px;
+    background: #fff;
+    .steps {
+			margin-bottom: 0;
+      .step {
+        &:not(:last-child) {
+          border-bottom: 1px solid $gray-bg;
+        }
+        &::marker {
+          color: $primary-light;
+					font-weight: bold;
+        }
+        .step-img {
+          float: right;
+          width: 30%;
+          height: 80px;
+          object-fit: cover;
+          margin: 0 0 0 10px;
+          + .step-content {
+            min-height: 80px;
+          }
+        }
+        .step-content {
+          margin: 5px 0;
+        }
+      }
+    }
+  }
+}

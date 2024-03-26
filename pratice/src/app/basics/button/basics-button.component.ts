@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   /** selector：創建的組件名，引用方式參照CSS命名的方式引用（id、偽類等等的都無效） */
@@ -9,5 +9,8 @@ import { Component } from '@angular/core';
   styleUrl: './basics-button.component.scss',
 })
 export class BasicsButtonComponent {
-  title: string = '按鈕';
+  @Input()
+  type: string = '';
+  @Input()
+  disabled: boolean = false;
 }

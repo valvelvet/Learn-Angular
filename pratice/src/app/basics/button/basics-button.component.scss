@@ -1,25 +1,49 @@
 @import "_variables.scss";
 
 button {
+  border: 1px solid transparent;
+  padding: 2px 20px;
+  border-radius: 3px;
   color: white;
   background-color: $primary;
-  border: none;
-  padding: 5px 20px;
-  border-radius: 3px;
 
-  &.red {
-    color: white;
+  &.primary {
     background-color: $primary;
-    border: 2px solid $primary-dark;
+    &:disabled {
+      border-color: $primary;
+      color: $primary;
+    }
   }
-  &.blue {
-    color: white;
+  &.second {
     background-color: $second;
-    border: 2px solid $second-bright;
+    &:disabled {
+      border-color: $second;
+      color: $second;
+    }
   }
-  &.orange {
-    color: white;
+  &.third {
     background-color: $third;
-    border: 2px solid $third;
+    &:disabled {
+      border-color: $third;
+      color: $third;
+    }
+  }
+  &.forth {
+    background-color: $forth;
+    &:disabled {
+      border-color: $forth;
+      color: $forth;
+    }
+  }
+
+  &.cancal {
+    border-color: $gray-light;
+    color: $gray-text;
+    background-color: white;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: $gray-bg;
   }
 }

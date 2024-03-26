@@ -1,0 +1,30 @@
+@import "_variables.scss";
+
+:host ::ng-deep {
+  .recipe-info {
+    margin: 0 0 10px;
+    display: flex;
+    text-decoration: none;
+
+    .recipe-img {
+      width: 30%;
+      object-fit: cover;
+    }
+    .recipe-intro {
+      margin: 0 0 0 10px;
+      border-bottom: 1px solid $gray-light;
+
+      .name {
+        color: $primary-dark;
+      }
+      .desc {
+        color: $gray-text;
+      }
+      .time {
+        margin-left: auto;
+        width: fit-content;
+        color: $gray-text;
+      }
+    }
+  }
+}

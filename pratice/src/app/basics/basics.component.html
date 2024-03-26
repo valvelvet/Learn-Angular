@@ -1,10 +1,14 @@
 <!-- 依組件之selector寫法，使用不同方式取用 -->
 <!-- selector: 'app-basics-button' -->
-<app-basics-button></app-basics-button>
+<app-basics-button [type]="btnType" (click)="btnClick('')">
+  按鈕
+</app-basics-button>
 <!-- selector: '[app-basics-button]' -->
-<!-- <div app-basics-button></div> -->
+<!-- <div app-basics-button>按鈕</div> -->
 <!-- selector: '.app-basics-button' -->
-<!-- <div class="app-basics-button"></div> -->
+<!-- <div class="app-basics-button">按鈕</div> -->
+
+<hr />
 
 <div>
   <h2>綁定</h2>
@@ -13,6 +17,8 @@
       inputVal:
       <!-- 屬性綁定 {{...}}；[...]="..." -->
       <span>{{ inputVal }}</span>
+      /
+      <span textContent="{{ inputVal }}"></span>
       /
       <span [textContent]="inputVal"></span>
       /
@@ -30,15 +36,22 @@
   <hr class="dash-line" />
   <h3>練習</h3>
   <div>
-    <span>輸入：</span>
     <input type="text" [(ngModel)]="praticeInputVal" />
-    <button
-      class="cancal m-1"
+    <app-basics-button
+      class="m-1"
+      [type]="'second'"
+      [disabled]="praticeInputVal.length == 0"
+      (click)="praticeInputVal = ''"
+    >
+      送出
+    </app-basics-button>
+    <app-basics-button
+      [type]="'cancal'"
       [disabled]="praticeInputVal.length == 0"
       (click)="praticeInputVal = ''"
     >
       清除
-    </button>
+    </app-basics-button>
   </div>
 </div>
 
@@ -47,7 +60,7 @@
 <div>
   <h2>ngIf</h2>
   <div>
-    <button (click)="theIfVal = !theIfVal">on/off</button>
+    <app-basics-button (click)="theIfVal = !theIfVal">on/off</app-basics-button>
     <span *ngIf="theIfVal; else theIfValFalse"> ❤️ </span>
     <ng-template #theIfValFalse>
       <span> 💔 </span>
@@ -63,19 +76,18 @@
   <hr class="dash-line" />
   <h2>ngStyle/ngClass</h2>
   <div>
-    <button
-      [ngClass]="btnType + ' mt-1'"
-      [ngStyle]="{ boxShadow: '4px 2px 0px ' + btnType }"
-      (click)="btnClick('')"
+    <p
+      [ngClass]="{ 'ms-auto': theIfVal }"
+      [ngStyle]="{ width: theIfVal ? 'fit-content' : '' }"
     >
-      按我
-    </button>
+      {{ theIfVal ? "ms-auto" : "ms-0" }}
+    </p>
   </div>
 
   <hr class="dash-line" />
   <h2>ngFor</h2>
   <div>
-    <button (click)="addItemForArr()">+</button>
+    <app-basics-button (click)="addItemForArr()">+</app-basics-button>
     <div>
       <span *ngFor="let num of theForArr"> {{ num }} </span>
     </div>
@@ -97,16 +109,16 @@
         >
           {{ i + 1 + ". " + item.content }}
         </span>
-        <button
-          [ngClass]="{ cancal: item.isFinish }"
+        <app-basics-button
+          [type]="{ cancal: item.isFinish }"
           (click)="item.isFinish = !item.isFinish"
         >
           完成
-        </button>
+        </app-basics-button>
       </li>
     </ul>
-    <button *ngIf="hasFinished()" (click)="removePraticeArrItem()">
+    <app-basics-button *ngIf="hasFinished()" (click)="removePraticeArrItem()">
       移除已完成
-    </button>
+    </app-basics-button>
   </div>
 </div>

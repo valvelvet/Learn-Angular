@@ -1,1 +1,40 @@
-<p>recipe-detail works!</p>
+<div class="recipe">
+  <div class="recipe-info">
+    <img class="recipe-img" [src]="recipe.imgPath" alt="{{ recipe.name }}" />
+    <div class="recipe-intro">
+      <h3 class="name">{{ recipe.name }}</h3>
+      <p class="desc">{{ recipe.description }}</p>
+      <div class="time">{{ recipe.time }}分鐘</div>
+    </div>
+  </div>
+
+  <div class="recipe-ingredients">
+    <h4>食材</h4>
+    <div class="ingredients">
+      <p class="ingredient" *ngFor="let ingredient of recipe.ingredients">
+        <span>{{ ingredient.name }}</span>
+        <span>{{ ingredient.quantity }}</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="mb-2 d-flex justify-content-end gap-1">
+    <app-basics-button type="third">加入購物清單</app-basics-button>
+    <app-basics-button type="">編輯食譜</app-basics-button>
+    <app-basics-button type="cancal">刪除食譜</app-basics-button>
+  </div>
+
+  <div class="recipe-steps">
+    <ol class="steps">
+      <li class="step" *ngFor="let step of recipe.steps">
+        <img
+          *ngIf="step.img"
+          class="step-img"
+          [src]="step.img"
+          alt="{{ step.content }}"
+        />
+        <p class="step-content">{{ step.content }}</p>
+      </li>
+    </ol>
+  </div>
+</div>

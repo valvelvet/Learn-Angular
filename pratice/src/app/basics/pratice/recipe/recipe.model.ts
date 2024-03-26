@@ -1,35 +1,46 @@
-// 份量
-type Unit = '杯' | '克' | '大匙' | '個';
+import { TypeIngredient, Ingredient } from '../model/ingredient.model';
 
 export class Recipe {
-  public name: string; // 食譜名稱
-  public description: string; // 說明
-  public imgPath: string; // 圖片
-  public time: number; // 時間(min)
-  // public serves: number; // 幾人份
+  /** 食譜名稱 */ public name: string;
+  /** 說明 */ public description: string;
+  /** 圖片 */ public imgPath: string;
+  /** 時間(min) */ public time: number;
+
+  constructor(name: string, desc: string, imgPath: string, time: number) {
+    this.name = name;
+    this.description = desc;
+    this.imgPath = imgPath;
+    this.time = time;
+  }
+}
+
+// /** 食材 */
+// type Ingredients = {
+//   name: string; // 食材名稱
+//   quantity: string; // 食材份量(ex:2杯水)
+// }[];
+/** 步驟 */
+type Steps = {
+  content: string; // 文字說明
+  img?: string; // 步驟配圖
+}[];
+
+export class RecipeDetail extends Recipe {
+  /** 食材 */ public ingredients: Ingredient[] = [];
+  /** 步驟 */ public steps: Steps;
 
   constructor(
     name: string,
     desc: string,
     imgPath: string,
     time: number,
-    // serves: number
+    ingredients: TypeIngredient[],
+    steps: Steps
   ) {
-    this.name = name;
-    this.description = desc;
-    this.imgPath = imgPath;
-    this.time = time;
-    // this.serves = serves;
+    super(name, desc, imgPath, time);
+    ingredients.map((item) =>
+      this.ingredients.push(new Ingredient(item.name, item.quantity))
+    );
+    this.steps = steps;
   }
-
-  // // 食材
-  // public ingredients: {
-  //   name: string; // 食材名稱
-  //   quantity: { num: number; unit: Unit }; // 食材份量(數量、單位)
-  // };
-  // // 調料
-  // public seasoning: {
-  //   name: string; // 調料名稱
-  //   quantity: string; // 調料份量
-  // };
 }

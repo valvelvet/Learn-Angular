@@ -25,7 +25,7 @@ export class BasicsComponent {
   inputVal = 'Text';
   praticeInputVal = '';
   theIfVal = true;
-  btnType: string = 'red';
+  btnType: string = 'primary';
   theForArr: number[] = [0, 1, 2, 3, 4];
   praticeArr: { isFinish: boolean; content: string }[] = [
     { isFinish: false, content: '4/4(四),4/5(五)放清明兒童節' },
@@ -51,14 +51,14 @@ export class BasicsComponent {
 
   btnClick(_btnType: string = '') {
     switch (this.btnType) {
-      case 'red':
-        this.btnType = 'blue';
+      case 'primary':
+        this.btnType = 'third';
         break;
-      case 'blue':
-        this.btnType = 'orange';
+      case 'second':
+        this.btnType = 'primary';
         break;
-      case 'orange':
-        this.btnType = 'red';
+      case 'third':
+        this.btnType = 'second';
         break;
       default:
         this.btnType = _btnType;
