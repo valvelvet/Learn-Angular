@@ -1,4 +1,12 @@
 <div class="p-2">
-  <!-- <app-basics-pratice-recipe-list></app-basics-pratice-recipe-list> -->
-  <app-basics-pratice-recipe-detail></app-basics-pratice-recipe-detail>
+  <app-basics-pratice-recipe-list
+    *ngIf="!currentRecipeId"
+    [recipes]="getRecipeList()"
+    (changeRecipe)="changeRecipe($event)"
+  ></app-basics-pratice-recipe-list>
+  <app-basics-pratice-recipe-detail
+    *ngIf="currentRecipeId"
+    [recipe]="getCuttentRecipe()"
+    (changeRecipe)="changeRecipe({ id: 0 })"
+  ></app-basics-pratice-recipe-detail>
 </div>

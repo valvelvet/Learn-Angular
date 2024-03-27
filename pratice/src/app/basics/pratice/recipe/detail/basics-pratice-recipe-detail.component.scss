@@ -1,5 +1,12 @@
 @import "_variables.scss";
 
+.back-to-list {
+  cursor: pointer;
+  color: $gray-text;
+  text-decoration: none;
+  line-height: 38px;
+}
+
 .recipe {
   .recipe-info {
     .recipe-img {
@@ -46,14 +53,14 @@
     padding: 10px;
     background: #fff;
     .steps {
-			margin-bottom: 0;
+      margin-bottom: 0;
       .step {
         &:not(:last-child) {
           border-bottom: 1px solid $gray-bg;
         }
         &::marker {
           color: $primary-light;
-					font-weight: bold;
+          font-weight: bold;
         }
         .step-img {
           float: right;

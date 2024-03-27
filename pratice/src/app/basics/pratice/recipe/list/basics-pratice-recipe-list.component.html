@@ -1,7 +1,13 @@
 <div class="recipes">
-  <!-- <h2 class="">列表</h2> -->
-  <button class="d-block ms-auto">新增食譜</button>
-  <a href="#" class="recipe" *ngFor="let recipe of recipes">
+  <div class="mb-2 d-flex justify-content-end gap-1">
+    <app-basics-button>新增食譜</app-basics-button>
+  </div>
+
+  <a
+    class="recipe"
+    *ngFor="let recipe of recipes"
+    (click)="toDetail(recipe.id)"
+  >
     <div class="recipe-info">
       <img class="recipe-img" [src]="recipe.imgPath" alt="{{ recipe.name }}" />
       <div class="recipe-intro">
